@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1500px;
+  min-height: 200px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 100px;
+  border: 1px solid black;
+}
+.header__container {
+  width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__container h2 {
+  font-size: 50px;
+}
