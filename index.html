@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px
+        }
+        #name {
+            max-width: 350px;
+            height: 50px;
+            border-radius: 10px;
+            padding-inline: 16px;
+            outline: none;
+            border: 2px solid green;
+            font-size: 24px;
+        }
+        button {
+            flex: 1;
+            min-height: 50px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 600;
+            outline: none;
+            border: none;
+            background-color: green;
+            color: #fff;
+            max-height: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .result {
+            opacity: 0;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            animation-name: show;
+            animation-duration: 250ms;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        p {
+            color: #232323;
+            font-size: 18px;
+        }
+        @keyframes show {
+            100% {
+                width: 100vw;
+                height: 100vh;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                opacity: 1;
+            }
+        }
+    </style>
+    <div class="container">
+      <div class="form" id="form">
+        <h1>Приветствую</h1>
+        <input id="name" placeholder="Введите имя" type="text" />
+        <button id="save-btn">Сохранить</button>
+      </div>
+    </div>
+    <div id="result-container" class="result hidden">
+      <p id="result-text"></p>
+      <button style="font-size: 14px" id="save-repeat">Попробовать еще раз</button>
+    </div>
+    <script>
+      const input = document.getElementById("name");
+      const saveBtn = document.getElementById("save-btn");
+      const repeatBtn = document.getElementById('save-repeat')
+      const resultText = document.getElementById("result-text");
+      const resultContainer = document.getElementById("result-container");
+      const form = document.getElementById("form");
+      saveBtn.addEventListener("click", () => {
+        const text = input.value;
+        resultText.textContent = `${text}, Пошел на хуй пидр!`;
+        resultContainer.classList.remove("hidden");
+        form.classList.add("hidden");
+      });
+      repeatBtn.addEventListener('click', () => {
+        resultContainer.classList.add('hidden')
+        form.classList.remove("hidden");
+      })
+    </script>
+  </body>
+</html>
